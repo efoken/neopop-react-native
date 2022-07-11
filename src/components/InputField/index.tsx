@@ -15,6 +15,7 @@ const InputField: React.FC<InputFieldProps> = ({
     inputRef,
     isDisabled,
     label,
+    name,
     nativeID,
     scrollIntoView,
     textStyle,
@@ -26,8 +27,13 @@ const InputField: React.FC<InputFieldProps> = ({
     // useAutoFocus({ autoFocus: autoFocus, ref: customRef, currentValue: value });
 
     React.useEffect(() => {
-        if (Platform.OS === 'web' && labelRef.current != null) {
-            labelRef.current.htmlFor = nativeID;
+        if (Platform.OS === 'web') {
+            if (customRef.current != null && name != null) {
+                (customRef.current as any).name = name;
+            }
+            if (labelRef.current != null) {
+                labelRef.current.htmlFor = nativeID;
+            }
         }
     }, [nativeID]);
 
