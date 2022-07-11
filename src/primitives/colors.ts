@@ -1,7 +1,7 @@
 import { FontOpacity } from '../components/Typography/types';
-import { hexToRGBA } from '../utils';
+import { hexToRGBA, mergeDeep } from '../utils';
 
-export const mainColors = Object.freeze({
+export let mainColors = Object.freeze({
     black: '#0D0D0D',
     white: '#FFFFFF',
     red: '#EE4D37',
@@ -10,7 +10,7 @@ export const mainColors = Object.freeze({
     green: '#06C270',
 });
 
-export const colorPalette = Object.freeze({
+export let colorPalette = Object.freeze({
     white: {
         50: '#E0E0E0',
         70: '#EFEFEF',
@@ -478,4 +478,22 @@ const getColorGuide = () => ({
     lightComponents: getLightThemedColors(),
 });
 
-export const colorGuide = getColorGuide();
+export let colorGuide = getColorGuide();
+
+interface UserTheme {
+    colorGuide?: typeof colorGuide;
+    colorPalette?: typeof colorPalette;
+    mainColors?: typeof mainColors;
+}
+
+export const extend = (themeOverwrite: UserTheme) => {
+    const {
+        mainColors: userMainColors = {},
+        colorGuide: userColorGuide = {},
+        colorPalette: userColorPalette = {},
+    } = themeOverwrite;
+
+    mainColors = Object.freeze(mergeDeep({}, mainColors, userMainColors));
+    colorPalette = Object.freeze(mergeDeep({}, colorPalette, userColorPalette));
+    colorGuide = Object.freeze(mergeDeep({}, getColorGuide(), userColorGuide));
+};
