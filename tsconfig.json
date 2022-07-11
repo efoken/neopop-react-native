@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "jsx": "react-native",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "strict": true
+    },
+    "exclude": ["dist", "node_modules"]
+}

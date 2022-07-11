@@ -1,0 +1,182 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { colorGuide, colorPalette } from '../../primitives';
+import { Back, Header } from '..';
+
+<Meta title="Components/Header" />
+
+# Header
+
+Header component is the basic necessity while creating a new page in the app. It can handle all the navigation and info related requirements of the page.
+
+## Variants
+
+There are two components(Header & Back) that serves the same purpose with different designs.
+
+Use `Header` component if you need block level heading with description support.
+
+Use `Back` component if you need inline level heading.
+
+export const HeaderTemplate = (args) => <Header {...args} />;
+
+export const BackTemplate = (args) => <Back {...args} />;
+
+### Header
+
+#### Header with heading
+
+<Canvas style={{ background: '#0D0D0D' }}>
+    <Story
+        name="Header with heading"
+        args={{
+            heading: 'pay rent on CRED',
+            description: 'pay using credit card and get exclusive rewards',
+            onBackPress: () => {
+                console.log('back pressed');
+            },
+        }}
+    >
+        {HeaderTemplate.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import React from 'react';
+import { Header } from 'neopop-react-native/components';
+
+const HeaderComp = () => {
+    return (
+        <Header
+            heading="pay rent on CRED"
+            description="pay using credit card and get exclusive rewards"
+            onBackPress={() => {
+                console.log('back pressed');
+            }}
+        />
+    );
+};
+
+export default HeaderComp;
+```
+
+#### Header without heading
+
+<Canvas style={{ background: '#0D0D0D' }}>
+    <Story
+        name="Header without heading"
+        args={{
+            onBackPress: () => {
+                console.log('back pressed');
+            },
+        }}
+    >
+        {HeaderTemplate.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import React from 'react';
+import { Header } from 'neopop-react-native/components';
+
+const HeaderComp = () => {
+    return (
+        <Header
+            onBackPress={() => {
+                console.log('back pressed');
+            }}
+        />
+    );
+};
+
+export default HeaderComp;
+```
+
+#### Header Props
+
+<div style={{ overflowX: 'auto' }}>
+
+| prop           | description                     | type       |
+| -------------- | ------------------------------- | ---------- |
+| `heading`      | text-content of the heading     | `string`   |
+| `description`  | text-description of the heading | `string`   |
+| `onBackPress*` | onPress handler on back button  | `function` |
+
+</div>
+
+### Back
+
+#### Back with heading
+
+<Canvas style={{ background: '#0D0D0D' }}>
+    <Story
+        name="Back with heading"
+        args={{
+            heading: 'pay rent on CRED',
+            onPress: () => {
+                console.log('back pressed');
+            },
+        }}
+    >
+        {BackTemplate.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import React from 'react';
+import { Back } from 'neopop-react-native/components';
+
+const BackComp = () => {
+    return (
+        <Back
+            heading="pay rent on CRED"
+            onPress={() => {
+                console.log('back pressed');
+            }}
+        />
+    );
+};
+
+export default BackComp;
+```
+
+#### Back without heading
+
+<Canvas style={{ background: '#0D0D0D' }}>
+    <Story
+        name="Back without heading"
+        args={{
+            onPress: () => {
+                console.log('back pressed');
+            },
+        }}
+    >
+        {BackTemplate.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import React from 'react';
+import { Back } from 'neopop-react-native/components';
+
+const BackComp = () => {
+    return (
+        <Back
+            onPress={() => {
+                console.log('back pressed');
+            }}
+        />
+    );
+};
+
+export default BackComp;
+```
+
+#### Back Props
+
+<div style={{ overflowX: 'auto' }}>
+
+| prop       | description                    | type       |
+| ---------- | ------------------------------ | ---------- |
+| `heading`  | back header heading            | `string`   |
+| `onPress*` | onPress handler on back button | `function` |
+
+</div>

@@ -1,0 +1,7 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.wordWrap": "off",
+    "typescript.tsdk": "node_modules/typescript/lib"
+}

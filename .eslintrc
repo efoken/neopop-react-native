@@ -1,0 +1,31 @@
+{
+    "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "airbnb-typescript",
+        "prettier",
+        "plugin:import/recommended",
+        "plugin:storybook/recommended"
+    ],
+    "env": {
+        "jest": true,
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "project": ["./tsconfig.json"]
+    },
+    "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "import/prefer-default-export": "off",
+        "react/function-component-definition": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off"
+    }
+}
