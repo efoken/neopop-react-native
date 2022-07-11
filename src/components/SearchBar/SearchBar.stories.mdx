@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { colorGuide } from '../../primitives';
 import { SearchBar } from '..';
 
@@ -35,9 +35,9 @@ export const BasicSearch = (args) => <SearchBar {...args} />;
 </Canvas>
 
 ```jsx
-import React from 'react';
-import { SearchBar } from '@cred/neopop-web/lib/components';
-import { colorGuide } from '@cred/neopop-web/lib/primitives';
+import * as React from 'react';
+import { SearchBar } from 'neopop-react-native/components';
+import { colorGuide } from 'neopop-react-native/primitives';
 
 const SearchInputField = () => {
     const handleChange = (value) => {
@@ -84,9 +84,9 @@ export default SearchInputField;
 </Canvas>
 
 ```jsx
-import React from 'react';
-import { SearchBar } from '@cred/neopop-web/lib/components';
-import { colorGuide } from '@cred/neopop-web/lib/primitives';
+import * as React from 'react';
+import { SearchBar } from 'neopop-react-native/components';
+import { colorGuide } from 'neopop-react-native/primitives';
 
 const SearchInputField = () => {
     const handleChange = (value) => {
@@ -112,7 +112,7 @@ export default SearchInputField;
 
 ## Props
 
-<div style={{ overflowX: 'auto' }} />
+<ArgsTable of={SearchBar} />
 
 **colorConfig** prop object support four color configurations for content namely `border`, `activeBorder`, `backgroundColor`, & `closeIcon`.
 
@@ -120,7 +120,15 @@ export default SearchInputField;
 
 **textStyle**
 
-<div style={{ overflowX: 'auto' }} />
+<div style={{ overflowX: 'auto' }}>
+
+| prop          | description        | type                                       |
+| ------------- | ------------------ | ------------------------------------------ |
+| `fontType*`   | typography variant | `heading`, `caps`, `body`, `serif-heading` |
+| `fontWeight*` | weight of the text | `800`, `700`, `600`, `500`, `400`, `300`   |
+| `fontSize*`   | size of the text   | `string`                                   |
+
+</div>
 
 ```js
 const colorConfig = {

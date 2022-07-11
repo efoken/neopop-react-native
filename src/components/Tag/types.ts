@@ -11,12 +11,30 @@ export interface TagColorConfig {
 }
 
 export interface TagProps {
+    /**
+     * tag keyword
+     */
     children: React.ReactNode;
+    /**
+     * tag color config
+     */
     colorConfig: TagColorConfig;
+    /**
+     * dark or light
+     */
     colorMode?: TagColorModes;
+    /**
+     * tag with icon source
+     */
     icon?: ImageSourcePropType;
+    /**
+     * tag without container
+     */
     noContainer?: boolean;
     style?: StyleProp<ViewStyle>;
+    /**
+     * can be used for passing font style
+     */
     textStyle?: FontNameSpace;
     type?: TagTypes;
 }
