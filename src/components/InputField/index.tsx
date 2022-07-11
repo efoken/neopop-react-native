@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Platform, TextInput, View } from 'react-native';
+import useScrollIntoView from '../../hooks/useScrollIntoView';
 import { colorGuide, mainColors, typographyGuide } from '../../primitives';
 import { hexToRGBA, isEmpty } from '../../utils';
 import Typography from '../Typography';
@@ -11,31 +12,33 @@ const InputField: React.FC<InputFieldProps> = ({
     colorMode = 'dark',
     errorMessage = 'error message',
     hasError,
-    inputMode = 'text',
     inputRef,
     isDisabled,
     label,
     name,
     nativeID,
     scrollIntoView,
+    tabIndex,
     textStyle,
     ...props
 }) => {
     const customRef = React.useRef<TextInput | null>(null);
     const labelRef = React.useRef<any>(null);
-    // useScrollIntoView({ scrollIntoView: scrollIntoView, ref: customRef });
+
+    useScrollIntoView({ ref: customRef, scrollIntoView });
     // useAutoFocus({ autoFocus: autoFocus, ref: customRef, currentValue: value });
 
     React.useEffect(() => {
         if (Platform.OS === 'web') {
-            if (customRef.current != null && name != null) {
+            if (customRef.current != null) {
                 (customRef.current as any).name = name;
+                (customRef.current as any).tabIndex = tabIndex;
             }
             if (labelRef.current != null) {
                 labelRef.current.htmlFor = nativeID;
             }
         }
-    }, [nativeID]);
+    }, [name, nativeID, tabIndex]);
 
     const getLabelColor = () => (hasError ? colorConfig?.errorColor : colorConfig?.labelColor);
 
@@ -82,18 +85,6 @@ const InputField: React.FC<InputFieldProps> = ({
                 editable={!isDisabled}
                 nativeID={nativeID}
                 placeholderTextColor={colors.placeholderColor ?? hexToRGBA(mainColors.black, 0.3)}
-                keyboardType={
-                    {
-                        decimal: 'decimal-pad' as const,
-                        email: 'email-address' as const,
-                        none: 'default' as const,
-                        numeric: 'number-pad' as const,
-                        search: 'web-search' as const,
-                        tel: 'name-phone-pad' as const,
-                        text: 'default' as const,
-                        url: 'url' as const,
-                    }[inputMode]
-                }
                 style={styles.input}
                 {...props}
             />
