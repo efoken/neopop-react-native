@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { View } from 'react-native';
 import { colorPalette, mainColors, fontVariant } from '../../primitives';
 import { hexToRGBA } from '../../utils';
 import { HorizontalSpacer, HorizontalDivider, Typography } from '..';
@@ -333,46 +334,42 @@ export const System = () => {
         },
     ];
     return (
-        <>
-            <View style={{ marginBottom: 30 }}>
-                {CONFIGS.map((config, index) => (
-                    <div style={{ minWidth: '33%' }} key={`typography-${index * 1}`}>
-                        <div className="cirka">
-                            <Typography
-                                {...fontVariant.HeadingBold22}
-                                color={colorPalette.popBlack[400]}
-                            >
-                                {config.title}
-                            </Typography>
-                            <HorizontalDivider color={hexToRGBA(colorPalette.popBlack[100], 0.1)} />
-                            <HorizontalSpacer n={2} />
-                        </div>
-                        <div
-                            style={{
-                                width: '100%',
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(2, 1fr)',
-                                gridColumnGap: '10px',
-                            }}
+        <View style={{ marginBottom: 30 }}>
+            {CONFIGS.map((config, index) => (
+                <div style={{ minWidth: '33%' }} key={`typography-${index * 1}`}>
+                    <div className="cirka">
+                        <Typography
+                            {...fontVariant.HeadingBold22}
+                            color={colorPalette.popBlack[400]}
                         >
-                            {config.items.map((item, ind) => (
-                                <div
-                                    key={`item-${ind * 1}`}
-                                    className={
-                                        item.fontType === FontType.SERIF_HEADING
-                                            ? 'cirka'
-                                            : 'gilroy'
-                                    }
-                                >
-                                    <Typography {...item} />
-                                </div>
-                            ))}
-                        </div>
-                        <HorizontalSpacer n={5} />
+                            {config.title}
+                        </Typography>
+                        <HorizontalDivider color={hexToRGBA(colorPalette.popBlack[100], 0.1)} />
+                        <HorizontalSpacer n={2} />
                     </div>
-                ))}
-            </View>
-        </>
+                    <div
+                        style={{
+                            width: '100%',
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)',
+                            gridColumnGap: '10px',
+                        }}
+                    >
+                        {config.items.map((item, ind) => (
+                            <div
+                                key={`item-${ind * 1}`}
+                                className={
+                                    item.fontType === FontType.SERIF_HEADING ? 'cirka' : 'gilroy'
+                                }
+                            >
+                                <Typography {...item} />
+                            </div>
+                        ))}
+                    </div>
+                    <HorizontalSpacer n={5} />
+                </div>
+            ))}
+        </View>
     );
 };
 
@@ -380,9 +377,7 @@ export const System = () => {
 
 Text wrapper that supports headings, serif-heading, caps, body, overflow, & overflow with ellipsis.
 
-export const TypoTemplate = (args) => {
-    return <Typography {...args} />;
-};
+export const TypoTemplate = (args) => <Typography {...args} />;
 
 ## How to use?
 
@@ -395,7 +390,7 @@ import { Typography } from 'neopop-react-native/components';
 2. Import `fontVariant` primitive. It is a config that provides fontType, fontSize & fontWeight as per the design system. You can select the style as per this convention:
 
     <br />
-    <img src={FontVariantImage} width="350" />
+    <img src={FontVariantImage} alt="" width="350" />
     <br />
 
 ```jsx
@@ -619,21 +614,7 @@ export default OverflowWithClamp;
 
 ## Props
 
-<div style={{ overflowX: 'auto' }}>
-
-| prop            | description                                               | type                                       |
-| --------------- | --------------------------------------------------------- | ------------------------------------------ |
-| `fontType` \*   | typography variant                                        | `heading`, `caps`, `body`, `serif-heading` |
-| `children` \*   | text content                                              | `ReactNode`                                |
-| `color`         | text color                                                | `string`                                   |
-| `fontWeight` \* | font weight                                               | `800`, `700`, `600`, `500`, `400`, `300`   |
-| `fontSize` \*   | font size                                                 | `string`                                   |
-| `style`         | CSS styles                                                | `CSSStyles`                                |
-| `overflow`      | text overflow                                             | `ellipsis`, `clip`                         |
-| `lineClamp`     | line-clamp to truncate text at a specific number of lines | `number`                                   |
-| `as`            | as paragraph/span                                         | `paragraph`, `span`                        |
-
-</div>
+<div style={{ overflowX: 'auto' }} />
 
 ## StyleGuide
 

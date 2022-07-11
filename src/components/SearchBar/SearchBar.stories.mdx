@@ -1,5 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
-import { colorGuide, mainColors, colorPalette } from '../../primitives';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { colorGuide } from '../../primitives';
 import { SearchBar } from '..';
 
 <Meta title="Components/SearchBar" component={SearchBar} />
@@ -8,9 +8,7 @@ import { SearchBar } from '..';
 
 SearchBar component allows to render a flexible search input field with change and submit event support.
 
-export const BasicSearch = (args) => {
-    return <SearchBar {...args} />;
-};
+export const BasicSearch = (args) => <SearchBar {...args} />;
 
 ## Usage
 
@@ -25,9 +23,9 @@ export const BasicSearch = (args) => {
             colorConfig: colorGuide.lightComponents.searchBar,
             inputFieldColorConfig: colorGuide.lightComponents.inputFields,
             onSearchInput: (value) => {
-                console.log('Search query: ', value);
+                console.log('Search query:', value);
             },
-            onSubmit: (value) => {
+            onSubmit: () => {
                 console.log('Search query submitted');
             },
         }}
@@ -74,9 +72,9 @@ export default SearchInputField;
             colorConfig: colorGuide.lightComponents.searchBar,
             inputFieldColorConfig: colorGuide.lightComponents.inputFields,
             onSearchInput: (value) => {
-                console.log('Search query: ', value);
+                console.log('Search query:', value);
             },
-            onSubmit: (value) => {
+            onSubmit: () => {
                 console.log('Search query submitted');
             },
         }}
@@ -114,20 +112,7 @@ export default SearchInputField;
 
 ## Props
 
-<div style={{ overflowX: 'auto' }}>
-
-| prop                    | description                                     | type                              |
-| ----------------------- | ----------------------------------------------- | --------------------------------- |
-| `icon`                  | url of icon inside input field                  | `string`                          |
-| `placeholder`           | input field placeholder                         | `string`                          |
-| `colorConfig`           | search container color config                   | `object`                          |
-| `inputFieldColorConfig` | input field color config                        | `object`                          |
-| `colorMode`             | dark or light                                   | `string`                          |
-| `textStyle`             | font styles to be used for the input text field | `object - FontNameSpaceInterface` |
-| `onSearchInput*`        | onChange event handler                          | `function`                        |
-| `onSubmit`              | onSubmit event handler                          | `function`                        |
-
-</div>
+<div style={{ overflowX: 'auto' }} />
 
 **colorConfig** prop object support four color configurations for content namely `border`, `activeBorder`, `backgroundColor`, & `closeIcon`.
 
@@ -135,15 +120,7 @@ export default SearchInputField;
 
 **textStyle**
 
-<div style={{ overflowX: 'auto' }}>
-
-| prop          | description        | type                                       |
-| ------------- | ------------------ | ------------------------------------------ |
-| `fontType*`   | typography variant | `heading`, `caps`, `body`, `serif-heading` |
-| `fontWeight*` | weight of the text | `800`, `700`, `600`, `500`, `400`, `300`   |
-| `fontSize*`   | size of the text   | `string`                                   |
-
-</div>
+<div style={{ overflowX: 'auto' }} />
 
 ```js
 const colorConfig = {

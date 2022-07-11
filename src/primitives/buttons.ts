@@ -1,6 +1,6 @@
 import {
+    ButtonColorModes,
     ButtonKinds,
-    ButtonModes,
     ButtonSizes,
     ButtonSpacingConfig,
     ButtonVariants,
@@ -8,7 +8,11 @@ import {
 import { colorGuide } from './colors';
 import { typographyGuide } from './typography';
 
-export const getButtonColors = (mode: ButtonModes, variant: ButtonVariants, kind: ButtonKinds) => {
+export const getButtonColors = (
+    mode: ButtonColorModes,
+    variant: ButtonVariants,
+    kind: ButtonKinds,
+) => {
     const colors =
         mode === 'dark' ? colorGuide.darkComponents.buttons : colorGuide.lightComponents.buttons;
 

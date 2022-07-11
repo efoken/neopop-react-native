@@ -3,6 +3,7 @@
         "jsx": "react-native",
         "moduleResolution": "node",
         "noEmit": true,
+        "skipLibCheck": true,
         "strict": true
     },
     "exclude": ["dist", "node_modules"]
