@@ -29,36 +29,12 @@ export enum FontOpacity {
 }
 
 export interface TypographyProps extends TextProps {
-    /**
-     * As paragraph/span?
-     */
     as?: 'p' | 'span';
-    /**
-     * Text Content?
-     */
     children: React.ReactNode;
-    /**
-     * Text Color?
-     */
     color?: string;
-    /**
-     * Font Size?
-     */
     fontSize: number;
-    /**
-     * Typography Variant?
-     */
     fontType: FontType;
-    /**
-     * Font Weight?
-     */
     fontWeight: FontWeight;
-    /**
-     * Ellipsis line-clamp?
-     */
     lineClamp?: number;
-    /**
-     * Text Overflow?
-     */
     overflow?: FontOverflow;
 }

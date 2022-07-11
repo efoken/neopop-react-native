@@ -4,13 +4,11 @@ import { Button } from '..';
 
 <Meta title="Components/Button" component={Button} />
 
-export const SampleButton = (args) => {
-    return (
-        <div style={{ width: '100%' }}>
-            <Button {...args}>Try me</Button>
-        </div>
-    );
-};
+export const SampleButton = (args) => (
+    <div style={{ width: '100%' }}>
+        <Button {...args}>Try me</Button>
+    </div>
+);
 
 # Button
 
@@ -114,26 +112,7 @@ There can be 2 different variants of `flat` and `elevated` kind buttton
 
 ## Props
 
-<div style={{ overflowX: 'auto' }}>
-
-| prop                 | description                                                                                                                                                                                                                                                | type             |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `kind*`              | different kind of button <br/> `"flat"` `"elevated"` `"link"`                                                                                                                                                                                              | `string`         |
-| `children*`          | use to render the center text or can pass any React Element                                                                                                                                                                                                | `ReactNode`      |
-| `style`              | custom styles if any                                                                                                                                                                                                                                       | `CSS Properties` |
-| `size`               | `"big"`, `"medium"` or `"small"` - used to decide the paddings, height, and typography style                                                                                                                                                               | `string`         |
-| `variant`            | `"primary"` or `"secondary"` variant of `flat` or `elevated` button                                                                                                                                                                                        | `string`         |
-| `colorMode`          | `"dark"` or `"light"` mode of the button                                                                                                                                                                                                                   | `string`         |
-| `elevationDirection` | specifies the direction for an `elevated` button. this will decide which plunk to hide or show when button is pressed. <br/> `"bottom-right"` `"top-right"` `"bottom-left"` `"top-left"` `"bottom-center"` `"top-center"` `"right-center"` `"left-center"` | `string`         |
-| `fullWidth`          | flex the button to take full-width of the container                                                                                                                                                                                                        | `boolean`        |
-| `showArrow`          | arrow icon in the button                                                                                                                                                                                                                                   | `boolean`        |
-| `disabled`           | if true, button is disabled                                                                                                                                                                                                                                | `object`         |
-| `colorConfig`        | object for taking in colors                                                                                                                                                                                                                                | `object`         |
-| `spacingConfig`      | object for taking in spacing details                                                                                                                                                                                                                       | `object`         |
-| `textStyle`          | text style - passes configs for `Typography` <br/> `{ fontWeight: FontWeights, fontSize: number, fontType: FontType }`                                                                                                                                     | `object`         |
-| `icon`               | url for any image to be set, this aligns left to the text                                                                                                                                                                                                  | `string`         |
-
-</div>
+<ArgsTable of={Button} />
 
 `colorConfig` prop object takes in all the colors related to button.
 It also takes `disabledColors` which takes in the same props but applied when `disabled` is true.

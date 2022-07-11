@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { Back, Header } from '..';
 
 <Meta title="Components/Header" />
@@ -42,17 +42,15 @@ export const BackTemplate = (args) => <Back {...args} />;
 import React from 'react';
 import { Header } from 'neopop-react-native/components';
 
-const HeaderComp = () => {
-    return (
-        <Header
-            heading="pay rent on CRED"
-            description="pay using credit card and get exclusive rewards"
-            onBackPress={() => {
-                console.log('back pressed');
-            }}
-        />
-    );
-};
+const HeaderComp = () => (
+    <Header
+        heading="pay rent on CRED"
+        description="pay using credit card and get exclusive rewards"
+        onBackPress={() => {
+            console.log('back pressed');
+        }}
+    />
+);
 
 export default HeaderComp;
 ```
@@ -76,22 +74,20 @@ export default HeaderComp;
 import React from 'react';
 import { Header } from 'neopop-react-native/components';
 
-const HeaderComp = () => {
-    return (
-        <Header
-            onBackPress={() => {
-                console.log('back pressed');
-            }}
-        />
-    );
-};
+const HeaderComp = () => (
+    <Header
+        onBackPress={() => {
+            console.log('back pressed');
+        }}
+    />
+);
 
 export default HeaderComp;
 ```
 
 #### Header Props
 
-<div style={{ overflowX: 'auto' }} />
+<ArgsTable of={Header} />
 
 ### Back
 
@@ -115,16 +111,14 @@ export default HeaderComp;
 import React from 'react';
 import { Back } from 'neopop-react-native/components';
 
-const BackComp = () => {
-    return (
-        <Back
-            heading="pay rent on CRED"
-            onPress={() => {
-                console.log('back pressed');
-            }}
-        />
-    );
-};
+const BackComp = () => (
+    <Back
+        heading="pay rent on CRED"
+        onPress={() => {
+            console.log('back pressed');
+        }}
+    />
+);
 
 export default BackComp;
 ```
@@ -148,19 +142,17 @@ export default BackComp;
 import React from 'react';
 import { Back } from 'neopop-react-native/components';
 
-const BackComp = () => {
-    return (
-        <Back
-            onPress={() => {
-                console.log('back pressed');
-            }}
-        />
-    );
-};
+const BackComp = () => (
+    <Back
+        onPress={() => {
+            console.log('back pressed');
+        }}
+    />
+);
 
 export default BackComp;
 ```
 
 #### Back Props
 
-<div style={{ overflowX: 'auto' }} />
+<ArgsTable of={Back} />
