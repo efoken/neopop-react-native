@@ -1,0 +1,195 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import {
+    mainColors,
+    colorPalette,
+    colorGuide,
+    fontNameSpaces,
+    getButtonConfig,
+} from '../../primitives';
+import { ElevatedCard, Column, HorizontalSpacer, Row, Tag, Typography, Button } from '..';
+
+<Meta title="Components/ElevatedCard" component={ElevatedCard} />
+
+# ElevatedCard
+
+Card component with plunks at right & bottom edges. Just wrap your card-content inside ElevatedCard component to make it elevated.
+
+export const CardTemplate = (args) => <ElevatedCard {...args} />;
+
+## Usage
+
+<Canvas>
+    <Story
+        name="Basic Card"
+        args={{
+            backgroundColor: '#AE275F',
+            edgeColors: {
+                bottom: '#5C1532',
+                right: '#851E49',
+            },
+            style: {
+                width: 230,
+            },
+            children: (
+                <div style={{ padding: 20 }}>
+                    <Column>
+                        <Row v="justify">
+                            <div>
+                                <Typography {...fontNameSpaces.tc12b} color={mainColors.white}>
+                                    ABCD Bank
+                                </Typography>
+                                <HorizontalSpacer n={2} />
+                                <Typography
+                                    {...fontNameSpaces.tb11m}
+                                    color={colorPalette.popWhite[100]}
+                                    overflow="ellipsis"
+                                >
+                                    XXX 1111
+                                </Typography>
+                            </div>
+                            <Row
+                                style={{
+                                    width: 30,
+                                    height: 30,
+                                    borderRadius: '50%',
+                                    borderWidth: 1,
+                                    borderColor: mainColors.white,
+                                }}
+                                h="center"
+                                v="center"
+                            >
+                                <div
+                                    style={{
+                                        width: 20,
+                                        height: 20,
+                                        borderRadius: '50%',
+                                        backgroundColor: colorPalette.popWhite[300],
+                                    }}
+                                />
+                            </Row>
+                        </Row>
+                        <HorizontalSpacer n={8} />
+                        <div style={{ maxWidth: '50%' }}>
+                            <Tag
+                                colorConfig={{
+                                    background: mainColors.yellow,
+                                    color: colorPalette.popWhite[400],
+                                }}
+                            >
+                                Due Today
+                            </Tag>
+                        </div>
+                        <HorizontalSpacer n={2} />
+                        <Typography {...fontNameSpaces.th16b} color={mainColors.white}>
+                            ₹1000.00
+                        </Typography>
+                        <HorizontalSpacer n={4} />
+                        <Button {...getButtonConfig('blp50p1')} fullWidth={true}>
+                            Pay Now
+                        </Button>
+                    </Column>
+                </div>
+            ),
+        }}
+    >
+        {CardTemplate.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import * as React from 'react';
+import {
+    ElevatedCard,
+    Column,
+    Row,
+    Typography,
+    HorizontalSpacer,
+    Tag,
+    Button,
+} from 'neopop-react-native/components';
+import {
+    mainColors,
+    colorPalette,
+    colorGuide,
+    fontNameSpaces,
+    getButtonConfig,
+} from 'neopop-react-native/primitives';
+
+const Card = () => (
+    <ElevatedCard
+        backgroundColor="#AE275F"
+        edgeColors={{
+            bottom: '#5C1532',
+            right: '#851E49',
+        }}
+        style={{
+            width: 230,
+        }}
+    >
+        <View style={{ padding: 20 }}>
+            <Column>
+                <Row v="justify">
+                    <div>
+                        <Typography {...fontNameSpaces.tc12b} color={mainColors.white}>
+                            ABCD Bank
+                        </Typography>
+                        <HorizontalSpacer n={2} />
+                        <Typography
+                            {...fontNameSpaces.tb11m}
+                            color={colorPalette.popWhite[100]}
+                            overflow="ellipsis"
+                        >
+                            XXX 1111
+                        </Typography>
+                    </div>
+                    <Row
+                        style={{
+                            width: 30,
+                            height: 30,
+                            borderRadius: '50%',
+                            borderWidth: 1,
+                            borderColor: mainColors.white,
+                        }}
+                        h="center"
+                        v="center"
+                    >
+                        <div
+                            style={{
+                                width: 20,
+                                height: 20,
+                                borderRadius: '50%',
+                                backgroundColor: colorPalette.popWhite[300],
+                            }}
+                        />
+                    </Row>
+                </Row>
+                <HorizontalSpacer n={8} />
+                <div style={{ maxWidth: '50%' }}>
+                    <Tag
+                        colorConfig={{
+                            background: mainColors.yellow,
+                            color: colorPalette.popWhite[400],
+                        }}
+                    >
+                        Due Today
+                    </Tag>
+                </div>
+                <HorizontalSpacer n={2} />
+                <Typography {...fontNameSpaces.th16b} color={mainColors.white}>
+                    ₹1000.00
+                </Typography>
+                <HorizontalSpacer n={4} />
+                <Button {...getButtonConfig('blp50p1')} fullWidth={true}>
+                    Pay Now
+                </Button>
+            </Column>
+        </View>
+    </ElevatedCard>
+);
+
+export default Card;
+```
+
+## Props
+
+<ArgsTable of={ElevatedCard} />

@@ -2,6 +2,7 @@ import { FontType, FontWeight } from '../components/Typography/types';
 
 export * from '../components/Back/types';
 export * from '../components/Button/types';
+export * from '../components/ElevatedCard/types';
 export * from '../components/Header/types';
 export * from '../components/Helpers/types';
 export * from '../components/InputField/types';

@@ -37,6 +37,19 @@ export const getButtonColors = (
           };
 };
 
+const getSize = (number: string) => {
+    switch (number) {
+        case '50':
+            return 'big';
+        case '40':
+            return 'medium';
+        case '30':
+            return 'small';
+        default:
+            return 'medium';
+    }
+};
+
 export const getSpacingConfig = (size: ButtonSizes): ButtonSpacingConfig => {
     switch (size) {
         case 'big':
@@ -81,4 +94,21 @@ export const getTextStyle = (size: ButtonSizes) => {
         default:
             return typographyGuide.buttons.medium;
     }
+};
+
+export const getButtonConfig = (name: string) => {
+    const colorMode = name.slice(1, 2) === 'l' ? 'light' : 'dark';
+    const variant = name.slice(2, 3) === 's' ? 'secondary' : 'primary';
+    const size = name.slice(3, 5);
+    const kind = name.slice(5, 6) === 'p' ? 'elevated' : 'flat';
+    const arrow = name.slice(6, 7);
+    return {
+        colorConfig: getButtonColors(colorMode, variant, kind),
+        spacingConfig: getSpacingConfig(getSize(size)),
+        colorMode,
+        size,
+        kind,
+        variant,
+        showArrow: Boolean(Number(arrow)),
+    };
 };
