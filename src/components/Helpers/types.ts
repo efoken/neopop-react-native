@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { GestureResponderEvent, ViewStyle } from 'react-native';
+import { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native';
 
 export interface RowProps {
     children?: React.ReactNode;
     h?: 'center';
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
     v?: 'center' | 'justify';
 }
 
 export interface ColumnProps {
     children?: React.ReactNode;
     h?: 'center';
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
     v?: 'center';
 }
 
@@ -30,7 +30,7 @@ export interface VerticalSpacerProps {
 export interface ChevronProps {
     color?: string;
     direction?: 'north' | 'south' | 'east' | 'west';
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
 }
 
 export interface PointerProps extends ChevronProps {

@@ -1,5 +1,6 @@
 export { default as Back } from './Back';
 export { default as Button } from './Button';
+export { default as Checkbox } from './Checkbox';
 export { default as Header } from './Header';
 export * from './Helpers';
 export { default as InputField } from './InputField';
