@@ -336,7 +336,7 @@ export const System = () => {
     return (
         <View style={{ marginBottom: 30 }}>
             {CONFIGS.map((config, index) => (
-                <div style={{ minWidth: '33%' }} key={`typography-${index * 1}`}>
+                <div style={{ minWidth: '33%' }} key={`typography-${index}`}>
                     <div className="cirka">
                         <Typography
                             {...fontVariant.HeadingBold22}
@@ -357,7 +357,7 @@ export const System = () => {
                     >
                         {config.items.map((item, ind) => (
                             <div
-                                key={`item-${ind * 1}`}
+                                key={`typography-config-${ind}`}
                                 className={
                                     item.fontType === FontType.SERIF_HEADING ? 'cirka' : 'gilroy'
                                 }
