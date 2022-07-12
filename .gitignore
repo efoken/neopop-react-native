@@ -1,2 +1,13 @@
-dist/
+# Dependency directories
 node_modules/
+
+# Build directory
+dist/
+storybook-static/
+
+# Expo
+.expo/
+web-build/
+
+# macOS
+.DS_Store
