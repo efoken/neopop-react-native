@@ -177,7 +177,7 @@ const MultipleCheckboxes = () => {
                         name={option.name}
                         isChecked={option?.isChecked || false}
                         colorConfig={colorGuide.lightComponents.checkbox}
-                        onChange={(e) => handleClick(e, index)}
+                        onChange={(e) => handleChange(e, index)}
                     >
                         <Typography
                             {...fontVariant.BodyRegular16}
