@@ -1,10 +1,10 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { View } from 'react-native';
 import { colorPalette, mainColors, fontVariant } from '../../primitives';
 import { hexToRGBA } from '../../utils';
 import { HorizontalSpacer, HorizontalDivider, Typography } from '..';
 import FontVariantImage from './assets/fontVariant.png';
-import { FontOverflow, FontType, FontWeight } from './types';
+import { FontType, FontWeight } from './types';
 
 <Meta
     title="Foundation/Typography"
@@ -336,7 +336,7 @@ export const System = () => {
     return (
         <View style={{ marginBottom: 30 }}>
             {CONFIGS.map((config, index) => (
-                <div style={{ minWidth: '33%' }} key={`typography-${index}`}>
+                <View key={`typography-${index}`} style={{ minWidth: '33%' }}>
                     <div className="cirka">
                         <Typography
                             {...fontVariant.HeadingBold22}
@@ -352,7 +352,7 @@ export const System = () => {
                             width: '100%',
                             display: 'grid',
                             gridTemplateColumns: 'repeat(2, 1fr)',
-                            gridColumnGap: '10px',
+                            gridColumnGap: 10,
                         }}
                     >
                         {config.items.map((item, ind) => (
@@ -367,7 +367,7 @@ export const System = () => {
                         ))}
                     </div>
                     <HorizontalSpacer n={5} />
-                </div>
+                </View>
             ))}
         </View>
     );
@@ -435,13 +435,11 @@ Here's what you can achieve from Typography component. No need to worry about li
 import { Typography } from 'neopop-react-native/components';
 import { colorPalette, fontVariant } from 'neopop-react-native/primitives';
 
-const Heading = () => {
-    return (
-        <Typography {...fontVariant.HeadingSemiBold16} color={mainColors.yellow}>
-            rewards for paying credit card bills.
-        </Typography>
-    );
-};
+const Heading = () => (
+    <Typography {...fontVariant.HeadingSemiBold16} color={mainColors.yellow}>
+        rewards for paying credit card bills.
+    </Typography>
+);
 
 export default Heading;
 ```
@@ -465,13 +463,11 @@ export default Heading;
 import { Typography } from 'neopop-react-native/components';
 import { colorPalette, fontVariant } from 'neopop-react-native/primitives';
 
-const SerifHeading = () => {
-    return (
-        <Typography {...fontVariant.CirkaHeadingBold20} color={mainColors.yellow}>
-            rewards for paying credit card bills.
-        </Typography>
-    );
-};
+const SerifHeading = () => (
+    <Typography {...fontVariant.CirkaHeadingBold20} color={mainColors.yellow}>
+        rewards for paying credit card bills.
+    </Typography>
+);
 
 export default SerifHeading;
 ```
@@ -495,13 +491,11 @@ export default SerifHeading;
 import { Typography } from 'neopop-react-native/components';
 import { colorPalette, fontVariant } from 'neopop-react-native/primitives';
 
-const Caps = () => {
-    return (
-        <Typography {...fontVariant.CapsBold10} color={mainColors.yellow}>
-            rewards for paying credit card bills.
-        </Typography>
-    );
-};
+const Caps = () => (
+    <Typography {...fontVariant.CapsBold10} color={mainColors.yellow}>
+        rewards for paying credit card bills.
+    </Typography>
+);
 
 export default Caps;
 ```
@@ -525,13 +519,11 @@ export default Caps;
 import { Typography } from 'neopop-react-native/components';
 import { colorPalette, fontVariant } from 'neopop-react-native/primitives';
 
-const Body = () => {
-    return (
-        <Typography {...fontVariant.BodyRegular16} color={mainColors.yellow}>
-            rewards for paying credit card bills.
-        </Typography>
-    );
-};
+const Body = () => (
+    <Typography {...fontVariant.BodyRegular16} color={mainColors.yellow}>
+        rewards for paying credit card bills.
+    </Typography>
+);
 
 export default Body;
 ```
@@ -545,8 +537,8 @@ export default Body;
             ...fontVariant.BodyRegular16,
             color: mainColors.yellow,
             children: 'rewards for paying credit card bills.',
-            overflow: FontOverflow.ELLIPSIS,
-            style: { width: '75px' },
+            overflow: 'ellipsis',
+            style: { width: 75 },
         }}
     >
         {TypoTemplate.bind({})}
@@ -555,20 +547,18 @@ export default Body;
 
 ```jsx
 import { Typography } from 'neopop-react-native/components';
-import { colorPalette, fontVariant, FontOverflow } from 'neopop-react-native/primitives';
+import { colorPalette, fontVariant } from 'neopop-react-native/primitives';
 
-const Overflow = () => {
-    return (
-        <Typography
-            {...fontVariant.BodyRegular16}
-            color={mainColors.yellow}
-            overflow={FontOverflow.ELLIPSIS}
-            style={{ width: '75px' }}
-        >
-            rewards for paying credit card bills.
-        </Typography>
-    );
-};
+const Overflow = () => (
+    <Typography
+        {...fontVariant.BodyRegular16}
+        color={mainColors.yellow}
+        overflow="ellipsis"
+        style={{ width: 75 }}
+    >
+        rewards for paying credit card bills.
+    </Typography>
+);
 
 export default Overflow;
 ```
@@ -582,9 +572,9 @@ export default Overflow;
             ...fontVariant.BodyRegular16,
             color: mainColors.yellow,
             children: 'rewards for paying credit card bills.',
-            overflow: FontOverflow.ELLIPSIS,
+            overflow: 'ellipsis',
             lineClamp: 2,
-            style: { width: '100px' },
+            style: { width: 100 },
         }}
     >
         {TypoTemplate.bind({})}
@@ -593,28 +583,26 @@ export default Overflow;
 
 ```jsx
 import { Typography } from 'neopop-react-native/components';
-import { colorPalette, fontVariant, FontOverflow } from 'neopop-react-native/primitives';
+import { colorPalette, fontVariant } from 'neopop-react-native/primitives';
 
-const OverflowWithClamp = () => {
-    return (
-        <Typography
-            {...fontVariant.BodyRegular16}
-            color={mainColors.yellow}
-            overflow={FontOverflow.ELLIPSIS}
-            lineClamp={2}
-            style={{ width: '100px' }}
-        >
-            rewards for paying credit card bills.
-        </Typography>
-    );
-};
+const OverflowWithClamp = () => (
+    <Typography
+        {...fontVariant.BodyRegular16}
+        color={mainColors.yellow}
+        overflow="ellipsis"
+        lineClamp={2}
+        style={{ width: 100 }}
+    >
+        rewards for paying credit card bills.
+    </Typography>
+);
 
 export default OverflowWithClamp;
 ```
 
 ## Props
 
-<div style={{ overflowX: 'auto' }} />
+<ArgsTable of={Typography} />
 
 ## StyleGuide
 

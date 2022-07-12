@@ -1,18 +1,62 @@
-import { StyleSheet } from 'react-native';
+import * as React from 'react';
+import { Platform, StyleSheet } from 'react-native';
 import { generateTextStyle } from '../../utils';
 import { TypographyProps } from './types';
 
-const useStyles = (props: Omit<TypographyProps, 'children'>) =>
-    StyleSheet.create({
-        typographyWrapper: {
-            ...generateTextStyle(props.fontType, props.fontSize, props.fontWeight, props.color),
-        },
-        paragraphWrapper: {
-            ...generateTextStyle(props.fontType, props.fontSize, props.fontWeight, props.color),
-        },
-        spanWrapper: {
-            ...generateTextStyle(props.fontType, props.fontSize, props.fontWeight, props.color),
-        },
-    });
+type TypographyStyleType = Pick<
+    TypographyProps,
+    'color' | 'fontSize' | 'fontType' | 'fontWeight' | 'lineClamp' | 'overflow'
+>;
+
+const useStyles = ({
+    color,
+    fontSize,
+    fontType,
+    fontWeight,
+    lineClamp,
+    overflow,
+}: TypographyStyleType) =>
+    React.useMemo(
+        () =>
+            StyleSheet.create({
+                typographyWrapper: {
+                    ...generateTextStyle(fontType, fontSize, fontWeight, color),
+                    ...(Platform.OS === 'web' &&
+                        (overflow && lineClamp
+                            ? {
+                                  WebkitBoxOrient: 'vertical',
+                                  display: '-webkit-box' as any,
+                                  whiteSpace: 'break-spaces',
+                              }
+                            : {
+                                  display: 'block' as any,
+                              })),
+                },
+                paragraphWrapper: {
+                    ...generateTextStyle(fontType, fontSize, fontWeight, color),
+                    ...(Platform.OS === 'web' &&
+                        (overflow && lineClamp
+                            ? {
+                                  WebkitBoxOrient: 'vertical',
+                                  display: '-webkit-box' as any,
+                                  whiteSpace: 'break-spaces',
+                              }
+                            : {
+                                  display: 'block' as any,
+                              })),
+                },
+                spanWrapper: {
+                    ...generateTextStyle(fontType, fontSize, fontWeight, color),
+                    ...(Platform.OS === 'web' &&
+                        overflow &&
+                        lineClamp && {
+                            WebkitBoxOrient: 'vertical',
+                            display: '-webkit-box' as any,
+                            whiteSpace: 'break-spaces',
+                        }),
+                },
+            }),
+        [color, fontSize, fontType, fontWeight, lineClamp, overflow],
+    );
 
 export default useStyles;

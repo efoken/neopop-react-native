@@ -3,17 +3,34 @@ import { Text } from 'react-native';
 import useStyles from './styles';
 import { FontType, TypographyProps } from './types';
 
-const Typography: React.FC<TypographyProps> = ({ as, children, style, ...props }) => {
-    const styles = useStyles(props);
+const Typography: React.FC<TypographyProps> = ({
+    as,
+    children,
+    color,
+    fontSize,
+    fontType,
+    fontWeight,
+    lineClamp,
+    overflow,
+    style,
+    ...props
+}) => {
+    const styles = useStyles({ color, fontSize, fontType, fontWeight, lineClamp, overflow });
 
     switch (as) {
         case 'p':
             return (
                 <Text
-                    dataSet={{
-                        font: props.fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
-                    }}
-                    style={[styles.paragraphWrapper, style]}
+                    ellipsizeMode={overflow === 'ellipsis' ? 'tail' : overflow}
+                    numberOfLines={overflow && (lineClamp ?? 1)}
+                    style={[
+                        styles.paragraphWrapper,
+                        {
+                            fontFamily:
+                                fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
+                        },
+                        style,
+                    ]}
                     {...props}
                 >
                     {children}
@@ -22,10 +39,16 @@ const Typography: React.FC<TypographyProps> = ({ as, children, style, ...props }
         case 'span':
             return (
                 <Text
-                    dataSet={{
-                        font: props.fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
-                    }}
-                    style={[styles.spanWrapper, style]}
+                    ellipsizeMode={overflow === 'ellipsis' ? 'tail' : overflow}
+                    numberOfLines={overflow && (lineClamp ?? 1)}
+                    style={[
+                        styles.spanWrapper,
+                        {
+                            fontFamily:
+                                fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
+                        },
+                        style,
+                    ]}
                     {...props}
                 >
                     {children}
@@ -34,10 +57,16 @@ const Typography: React.FC<TypographyProps> = ({ as, children, style, ...props }
         default:
             return (
                 <Text
-                    dataSet={{
-                        font: props.fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
-                    }}
-                    style={[styles.typographyWrapper, style]}
+                    ellipsizeMode={overflow === 'ellipsis' ? 'tail' : overflow}
+                    numberOfLines={overflow && (lineClamp ?? 1)}
+                    style={[
+                        styles.typographyWrapper,
+                        {
+                            fontFamily:
+                                fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
+                        },
+                        style,
+                    ]}
                     {...props}
                 >
                     {children}

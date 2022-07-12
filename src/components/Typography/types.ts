@@ -16,10 +16,7 @@ export enum FontWeight {
     THIN = '300',
 }
 
-export enum FontOverflow {
-    ELLIPSIS = 'ellipsis',
-    CLIP = 'clip',
-}
+export type FontOverflow = 'ellipsis' | 'clip';
 
 export enum FontOpacity {
     HEADING = 0.9,
@@ -29,12 +26,36 @@ export enum FontOpacity {
 }
 
 export interface TypographyProps extends TextProps {
+    /**
+     * as paragraph/span
+     */
     as?: 'p' | 'span';
+    /**
+     * text content
+     */
     children: React.ReactNode;
+    /**
+     * text color
+     */
     color?: string;
+    /**
+     * font size
+     */
     fontSize: number;
+    /**
+     * typography variant
+     */
     fontType: FontType;
+    /**
+     * font weight
+     */
     fontWeight: FontWeight;
+    /**
+     * line-clamp to truncate text at a specific number of lines
+     */
     lineClamp?: number;
+    /**
+     * text overflow
+     */
     overflow?: FontOverflow;
 }

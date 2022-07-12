@@ -17,7 +17,6 @@ import {
     getButtonConfig,
     mainColors,
 } from 'neopop-react-native/primitives';
-import { FontOverflow } from 'neopop-react-native/types';
 import * as React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 
@@ -70,7 +69,7 @@ export default function App() {
                             <Typography
                                 {...fontNameSpaces.tb11m}
                                 color={colorPalette.popWhite[100]}
-                                overflow={FontOverflow.ELLIPSIS}
+                                overflow="ellipsis"
                             >
                                 XXX 1111
                             </Typography>
