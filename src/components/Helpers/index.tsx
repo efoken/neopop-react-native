@@ -68,11 +68,11 @@ export const HorizontalDivider: React.FC<HorizontalDividerProps> = ({ color }) =
 );
 
 export const HorizontalSpacer: React.FC<HorizontalSpacerProps> = ({ n }) => (
-    <View style={{ marginBottom: `calc(${n} * 5px)` }} />
+    <View style={{ marginBottom: n * 5 }} />
 );
 
 export const VerticalSpacer: React.FC<VerticalSpacerProps> = ({ n }) => (
-    <View style={{ marginRight: `calc(${n} * 5px)` }} />
+    <View style={{ marginRight: n * 5 }} />
 );
 
 const rotateDegrees = {
