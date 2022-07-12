@@ -40,13 +40,13 @@ export const getButtonColors = (
 const getSize = (number: string) => {
     switch (number) {
         case '50':
-            return 'big';
+            return 'big' as const;
         case '40':
-            return 'medium';
+            return 'medium' as const;
         case '30':
-            return 'small';
+            return 'small' as const;
         default:
-            return 'medium';
+            return 'medium' as const;
     }
 };
 
@@ -97,16 +97,16 @@ export const getTextStyle = (size: ButtonSizes) => {
 };
 
 export const getButtonConfig = (name: string) => {
-    const colorMode = name.slice(1, 2) === 'l' ? 'light' : 'dark';
-    const variant = name.slice(2, 3) === 's' ? 'secondary' : 'primary';
+    const colorMode = name.slice(1, 2) === 'l' ? ('light' as const) : ('dark' as const);
+    const variant = name.slice(2, 3) === 's' ? ('secondary' as const) : ('primary' as const);
     const size = name.slice(3, 5);
-    const kind = name.slice(5, 6) === 'p' ? 'elevated' : 'flat';
+    const kind = name.slice(5, 6) === 'p' ? ('elevated' as const) : ('flat' as const);
     const arrow = name.slice(6, 7);
     return {
         colorConfig: getButtonColors(colorMode, variant, kind),
         spacingConfig: getSpacingConfig(getSize(size)),
         colorMode,
-        size,
+        size: getSize(size),
         kind,
         variant,
         showArrow: Boolean(Number(arrow)),

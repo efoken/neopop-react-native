@@ -1,62 +1,77 @@
-import { Platform, StyleSheet } from 'react-native';
+import * as React from 'react';
+import { LayoutRectangle, Platform, StyleSheet } from 'react-native';
 import { PlunkProps } from '../../primitives';
+import { getTransform } from '../../utils';
 import { CardProps } from './types';
 
-const EDGE_WIDTH = PlunkProps.WIDTH;
+const EDGEWIDTH = PlunkProps.WIDTH;
 const SKEW_ANGLE = PlunkProps.ANGLE;
 
-const useStyles = (props: Pick<CardProps, 'backgroundColor' | 'edgeColors' | 'fullWidth'>) =>
-    StyleSheet.create({
-        cardFace: {
-            backgroundColor: props.backgroundColor ?? 'transparent',
-            marginBottom: EDGE_WIDTH,
-            marginLeft: 0,
-            marginRight: EDGE_WIDTH,
-            marginTop: 0,
-            width: '100%',
-            zIndex: 1,
-        },
-        cardEdge: {
-            position: 'absolute',
-            ...(Platform.OS === 'web' && {
-                transformOrigin: '0% 0%',
-                transition: `transform ${EDGE_WIDTH / 100}s ease`,
+type CardStyleType = Pick<CardProps, 'backgroundColor' | 'edgeColors' | 'fullWidth'> & {
+    layout: LayoutRectangle;
+};
+
+const useStyles = ({ backgroundColor, edgeColors, fullWidth, layout }: CardStyleType) =>
+    React.useMemo(
+        () =>
+            StyleSheet.create({
+                cardFace: {
+                    backgroundColor: backgroundColor ?? 'transparent',
+                    marginBottom: EDGEWIDTH,
+                    marginLeft: 0,
+                    marginRight: EDGEWIDTH,
+                    marginTop: 0,
+                    zIndex: 1,
+                },
+                cardEdge: {
+                    position: 'absolute',
+                    ...(Platform.OS === 'web' && {
+                        transformOrigin: '0% 0%',
+                        transition: `transform ${EDGEWIDTH / 100}s ease`,
+                    }),
+                },
+                cardEdgeRight: {
+                    backgroundColor: edgeColors?.right ?? 'transparent',
+                    height:
+                        Platform.OS === 'web'
+                            ? `calc(100% - ${EDGEWIDTH}px)`
+                            : layout.height - EDGEWIDTH / 2,
+                    right: 0,
+                    top: 0,
+                    width: EDGEWIDTH,
+                    transform: getTransform([
+                        { translateX: 0 },
+                        { translateY: 0 },
+                        { translateZ: 0 },
+                        { skewY: `${SKEW_ANGLE}deg` },
+                    ]),
+                },
+                cardEdgeBottom: {
+                    backgroundColor: edgeColors?.bottom ?? 'transparent',
+                    bottom: 0,
+                    height: EDGEWIDTH,
+                    left: 0,
+                    transform: getTransform([
+                        { translateX: 0 },
+                        { translateY: 0 },
+                        { translateZ: 0 },
+                        { skewX: `${SKEW_ANGLE}deg` },
+                    ]),
+                    width:
+                        Platform.OS === 'web'
+                            ? `calc(100% - ${EDGEWIDTH}px)`
+                            : layout.width - EDGEWIDTH / 2,
+                },
+                cardContainer: {
+                    overflow: 'hidden',
+                    width: '100%',
+                    ...(Platform.OS === 'web' && {
+                        display: fullWidth ? ('block' as any) : ('inline-flex' as any),
+                        userSelect: 'none',
+                    }),
+                },
             }),
-        },
-        cardEdgeRight: {
-            backgroundColor: props.edgeColors?.right ?? 'transparent',
-            height: `calc(100% - ${EDGE_WIDTH}px)`,
-            right: 0,
-            top: 0,
-            width: EDGE_WIDTH,
-            transform: [
-                { translateX: 0 },
-                { translateY: 0 },
-                { translateZ: 0 } as any,
-                { skewY: `${SKEW_ANGLE}deg` },
-            ],
-        },
-        cardEdgeBottom: {
-            backgroundColor: props.edgeColors?.bottom ?? 'transparent',
-            bottom: 0,
-            height: EDGE_WIDTH,
-            left: 0,
-            transform: [
-                { translateX: 0 },
-                { translateY: 0 },
-                { translateZ: 0 } as any,
-                { skewX: `${SKEW_ANGLE}deg` },
-            ],
-            width: `calc(100% - ${EDGE_WIDTH}px)`,
-        },
-        cardContainer: {
-            overflow: 'hidden',
-            width: '100%',
-            ...(Platform.OS === 'web' && {
-                display: props.fullWidth ? ('block' as any) : ('inline-flex' as any),
-                userSelect: 'none',
-            }),
-        },
-    });
+        [backgroundColor, edgeColors, fullWidth, layout],
+    );
 
 export default useStyles;

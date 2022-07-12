@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { View } from 'react-native';
 import {
     mainColors,
     colorPalette,
@@ -31,64 +32,62 @@ export const CardTemplate = (args) => <ElevatedCard {...args} />;
                 width: 230,
             },
             children: (
-                <div style={{ padding: 20 }}>
-                    <Column>
-                        <Row v="justify">
-                            <div>
-                                <Typography {...fontNameSpaces.tc12b} color={mainColors.white}>
-                                    ABCD Bank
-                                </Typography>
-                                <HorizontalSpacer n={2} />
-                                <Typography
-                                    {...fontNameSpaces.tb11m}
-                                    color={colorPalette.popWhite[100]}
-                                    overflow="ellipsis"
-                                >
-                                    XXX 1111
-                                </Typography>
-                            </div>
-                            <Row
+                <Column style={{ padding: 20 }}>
+                    <Row v="justify">
+                        <View>
+                            <Typography {...fontNameSpaces.tc12b} color={mainColors.white}>
+                                ABCD Bank
+                            </Typography>
+                            <HorizontalSpacer n={2} />
+                            <Typography
+                                {...fontNameSpaces.tb11m}
+                                color={colorPalette.popWhite[100]}
+                                overflow="ellipsis"
+                            >
+                                XXX 1111
+                            </Typography>
+                        </View>
+                        <Row
+                            style={{
+                                width: 32,
+                                height: 32,
+                                borderRadius: 16,
+                                borderWidth: 1,
+                                borderColor: mainColors.white,
+                            }}
+                            h="center"
+                            v="center"
+                        >
+                            <View
                                 style={{
-                                    width: 30,
-                                    height: 30,
-                                    borderRadius: '50%',
-                                    borderWidth: 1,
-                                    borderColor: mainColors.white,
+                                    width: 20,
+                                    height: 20,
+                                    borderRadius: 10,
+                                    backgroundColor: colorPalette.popWhite[300],
                                 }}
-                                h="center"
-                                v="center"
-                            >
-                                <div
-                                    style={{
-                                        width: 20,
-                                        height: 20,
-                                        borderRadius: '50%',
-                                        backgroundColor: colorPalette.popWhite[300],
-                                    }}
-                                />
-                            </Row>
+                            />
                         </Row>
-                        <HorizontalSpacer n={8} />
-                        <div style={{ maxWidth: '50%' }}>
-                            <Tag
-                                colorConfig={{
-                                    background: mainColors.yellow,
-                                    color: colorPalette.popWhite[400],
-                                }}
-                            >
-                                Due Today
-                            </Tag>
-                        </div>
-                        <HorizontalSpacer n={2} />
-                        <Typography {...fontNameSpaces.th16b} color={mainColors.white}>
-                            ₹1000.00
-                        </Typography>
-                        <HorizontalSpacer n={4} />
-                        <Button {...getButtonConfig('blp50p1')} fullWidth={true}>
-                            Pay Now
-                        </Button>
-                    </Column>
-                </div>
+                    </Row>
+                    <HorizontalSpacer n={8} />
+                    <View style={{ maxWidth: '50%' }}>
+                        <Tag
+                            colorConfig={{
+                                background: mainColors.yellow,
+                                color: colorPalette.popWhite[400],
+                            }}
+                        >
+                            Due Today
+                        </Tag>
+                    </View>
+                    <HorizontalSpacer n={2} />
+                    <Typography {...fontNameSpaces.th16b} color={mainColors.white}>
+                        ₹1000.00
+                    </Typography>
+                    <HorizontalSpacer n={4} />
+                    <Button {...getButtonConfig('blp50p1')} fullWidth>
+                        Pay Now
+                    </Button>
+                </Column>
             ),
         }}
     >
