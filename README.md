@@ -36,11 +36,11 @@ NeoPOP was created with one simple goal, to create the next generation of the ne
 to use NeoPOP library, all you need to do is install the `neopop-react-native` package and its peer dependencies:
 
 ```sh
-yarn add neopop-react-native react react-dom react-native react-native-svg react-native-web
+yarn add neopop-react-native react react-native react-native-svg react-native-web
 
 # or
 
-npm i neopop-react-native react react-dom react-native react-native-svg react-native-web
+npm i neopop-react-native react react-native react-native-svg react-native-web
 ```
 
 ## how to use?
