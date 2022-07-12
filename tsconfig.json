@@ -6,5 +6,5 @@
         "skipLibCheck": true,
         "strict": true
     },
-    "exclude": ["dist", "node_modules"]
+    "exclude": ["dist", "example", "node_modules"]
 }
