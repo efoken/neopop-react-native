@@ -1,0 +1,153 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { mainColors } from '../../primitives';
+import {
+    Cross,
+    Pointer,
+    Chevron,
+    HorizontalSpacer,
+    VerticalSpacer,
+    HorizontalDivider,
+    PageContainer,
+    Row,
+    Column,
+} from '..';
+
+<Meta title="Foundation/Miscellaneous" />
+
+# Miscellaneous
+
+Here are the few miscellaneous items to improve the developer experience.
+
+## Icons
+
+Icons are often used to display common actions like close, expand and click etc. Here are few icons as per the design system.
+
+### Cross
+
+export const CrossIcon = (args) => <Cross {...args} />;
+
+<Canvas>
+    <Story
+        name="Cross"
+        args={{
+            color: mainColors.red,
+            onClick: () => {},
+        }}
+    >
+        {CrossIcon.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import * as React from 'react';
+import { Cross } from 'neopop-react-native/components';
+import { mainColors } from 'neopop-react-native/primitives';
+
+const CrossIcon = () => <Cross color={mainColors.red} />;
+
+export default CrossIcon;
+```
+
+**Props**
+
+<ArgsTable of={Cross} />
+
+### Pointer
+
+export const PointerIcon = (args) => <Pointer {...args} />;
+
+<Canvas>
+    <Story
+        name="Pointer"
+        args={{
+            color: mainColors.green,
+        }}
+        argTypes={{
+            direction: {
+                options: ['north', 'south', 'east', 'west'],
+                control: { type: 'select' },
+            },
+            size: {
+                options: ['medium', 'small'],
+                control: { type: 'select' },
+            },
+        }}
+    >
+        {PointerIcon.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import * as React from 'react';
+import { Pointer } from 'neopop-react-native/components';
+import { mainColors } from 'neopop-react-native/primitives';
+
+const PointerIcon = () => <Pointer color={mainColors.red} />;
+
+export default PointerIcon;
+```
+
+**Props**
+
+<ArgsTable of={Pointer} />
+
+**Variants**
+
+<div style={{ overflowX: 'auto' }}>
+    <Canvas>
+        <Pointer color={mainColors.black} />
+        <Pointer color={mainColors.black} direction="west" />
+        <Pointer color={mainColors.black} direction="north" />
+        <Pointer color={mainColors.black} direction="south" />
+        <Pointer color={mainColors.black} size="small" />
+        <Pointer color={mainColors.black} direction="west" size="small" />
+        <Pointer color={mainColors.black} direction="north" size="small" />
+        <Pointer color={mainColors.black} direction="south" size="small" />
+    </Canvas>
+</div>
+
+### Chevron
+
+export const ChevronIcon = (args) => <Chevron {...args} />;
+
+<Canvas>
+    <Story
+        name="Chevron"
+        args={{
+            color: mainColors.blue,
+        }}
+        argTypes={{
+            direction: {
+                options: ['north', 'south', 'east', 'west'],
+                control: { type: 'select' },
+            },
+        }}
+    >
+        {ChevronIcon.bind({})}
+    </Story>
+</Canvas>
+
+```jsx
+import * as React from 'react';
+import { Chevron } from 'neopop-react-native/components';
+import { mainColors } from 'neopop-react-native/primitives';
+
+const ChevronIcon = () => <Chevron color={mainColors.red} />;
+
+export default ChevronIcon;
+```
+
+**Props**
+
+<ArgsTable of={Chevron} />
+
+**Variants**
+
+<div style={{ overflowX: 'auto' }}>
+    <Canvas>
+        <Chevron color={mainColors.black} />
+        <Chevron color={mainColors.black} direction="west" />
+        <Chevron color={mainColors.black} direction="north" />
+        <Chevron color={mainColors.black} direction="south" />
+    </Canvas>
+</div>

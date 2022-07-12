@@ -21,6 +21,16 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    options: {
+        storySort: {
+            order: [
+                'Introduction',
+                'Foundation',
+                ['Colors', 'Typography', 'Layout', 'Miscellaneous', 'Customization'],
+                'Components',
+            ],
+        },
+    },
     viewport: {
         viewports: CUSTOM_VIEWPORTS,
         defaultViewport: 'iphoneX',
