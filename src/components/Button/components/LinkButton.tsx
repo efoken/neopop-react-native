@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Pressable } from 'react-native';
-import { useLayout } from '../../../hooks/useLayout';
+import useLayout from '../../../hooks/useLayout';
 import { fontVariant } from '../../../primitives';
 import Typography from '../../Typography';
 import useStyles from '../styles';

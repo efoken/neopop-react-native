@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { useLayout } from '../../hooks/useLayout';
+import useLayout from '../../hooks/useLayout';
 import useStyles from './styles';
 import { CardProps } from './types';
 

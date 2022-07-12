@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, Pressable, View } from 'react-native';
-import { useLayout } from '../../../hooks/useLayout';
+import useLayout from '../../../hooks/useLayout';
 import { fontNameSpaces } from '../../../primitives';
 import { getButtonColors, getSpacingConfig, getTextStyle } from '../../../primitives/buttons';
 import { Pointer } from '../../Helpers';
