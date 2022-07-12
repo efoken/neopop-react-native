@@ -1,5 +1,5 @@
-import { FontOpacity } from '../components/Typography/types';
 import { hexToRGBA, mergeDeep } from '../utils';
+import { fontOpacity } from './opacity';
 
 export let mainColors = Object.freeze({
     black: '#0D0D0D',
@@ -138,10 +138,10 @@ export let colorPalette = Object.freeze({
 
 const getDarkThemedColors = () => ({
     font: {
-        heading: hexToRGBA(mainColors.white, FontOpacity.HEADING),
-        subHeading: hexToRGBA(mainColors.white, FontOpacity.SUB_HEADING),
-        bodyText: hexToRGBA(mainColors.white, FontOpacity.BODY_TEXT),
-        bodyTextLighter: hexToRGBA(mainColors.white, FontOpacity.BODY_TEXT_LIGHTER),
+        heading: hexToRGBA(mainColors.white, fontOpacity.heading),
+        subHeading: hexToRGBA(mainColors.white, fontOpacity.subHeading),
+        bodyText: hexToRGBA(mainColors.white, fontOpacity.bodyText),
+        bodyTextLighter: hexToRGBA(mainColors.white, fontOpacity.bodyTextLighter),
     },
     containerCard: {
         background: colorPalette.black[100],
@@ -193,8 +193,8 @@ const getDarkThemedColors = () => ({
         topPlunk: colorPalette.black[70],
     },
     inputFields: {
-        textColor: hexToRGBA(mainColors.white, FontOpacity.HEADING),
-        labelColor: hexToRGBA(mainColors.white, FontOpacity.BODY_TEXT),
+        textColor: hexToRGBA(mainColors.white, fontOpacity.heading),
+        labelColor: hexToRGBA(mainColors.white, fontOpacity.bodyText),
         caretColor: mainColors.blue,
         errorColor: mainColors.red,
         placeholderColor: hexToRGBA(mainColors.white, 0.3),
@@ -306,10 +306,10 @@ const getDarkThemedColors = () => ({
 
 const getLightThemedColors = () => ({
     font: {
-        heading: hexToRGBA(mainColors.black, FontOpacity.HEADING),
-        subHeading: hexToRGBA(mainColors.black, FontOpacity.SUB_HEADING),
-        bodyText: hexToRGBA(mainColors.black, FontOpacity.BODY_TEXT),
-        bodyTextLighter: hexToRGBA(mainColors.black, FontOpacity.BODY_TEXT_LIGHTER),
+        heading: hexToRGBA(mainColors.black, fontOpacity.heading),
+        subHeading: hexToRGBA(mainColors.black, fontOpacity.subHeading),
+        bodyText: hexToRGBA(mainColors.black, fontOpacity.bodyText),
+        bodyTextLighter: hexToRGBA(mainColors.black, fontOpacity.bodyTextLighter),
     },
     containerCard: {
         background: colorPalette.black[100],
@@ -391,8 +391,8 @@ const getLightThemedColors = () => ({
         topPlunk: colorPalette.white[50],
     },
     inputFields: {
-        textColor: hexToRGBA(mainColors.black, FontOpacity.HEADING),
-        labelColor: hexToRGBA(mainColors.black, FontOpacity.BODY_TEXT),
+        textColor: hexToRGBA(mainColors.black, fontOpacity.heading),
+        labelColor: hexToRGBA(mainColors.black, fontOpacity.bodyText),
         caretColor: mainColors.blue,
         errorColor: mainColors.red,
         placeholderColor: hexToRGBA(mainColors.black, 0.3),

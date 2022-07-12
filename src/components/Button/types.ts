@@ -8,16 +8,15 @@ interface EdgeColors {
     top: string;
 }
 
-export enum ButtonElevationDirections {
-    br = 'bottom-right',
-    tr = 'top-right',
-    bl = 'bottom-left',
-    tl = 'top-left',
-    bc = 'bottom-center',
-    tc = 'top-center',
-    rc = 'right-center',
-    lc = 'left-center',
-}
+export type ButtonElevationDirections =
+    | 'bottom-right'
+    | 'top-right'
+    | 'bottom-left'
+    | 'top-left'
+    | 'bottom-center'
+    | 'top-center'
+    | 'right-center'
+    | 'left-center';
 
 export type ButtonVariants = 'primary' | 'secondary';
 

@@ -8,18 +8,18 @@ const EDGEWIDTH = PlunkProps.WIDTH;
 const SKEW_ANGLE = PlunkProps.ANGLE;
 
 const shouldNotMoveRightEdge = (elevationDirection?: ButtonElevationDirections) =>
-    elevationDirection === ButtonElevationDirections.lc ||
-    elevationDirection === ButtonElevationDirections.rc ||
-    elevationDirection === ButtonElevationDirections.tc ||
-    elevationDirection === ButtonElevationDirections.tr ||
-    elevationDirection === ButtonElevationDirections.tl;
+    elevationDirection === 'left-center' ||
+    elevationDirection === 'right-center' ||
+    elevationDirection === 'top-center' ||
+    elevationDirection === 'top-right' ||
+    elevationDirection === 'top-left';
 
 const shouldNotMoveBottomEdge = (elevationDirection?: ButtonElevationDirections) =>
-    elevationDirection === ButtonElevationDirections.lc ||
-    elevationDirection === ButtonElevationDirections.tc ||
-    elevationDirection === ButtonElevationDirections.bc ||
-    elevationDirection === ButtonElevationDirections.bl ||
-    elevationDirection === ButtonElevationDirections.tl;
+    elevationDirection === 'left-center' ||
+    elevationDirection === 'top-center' ||
+    elevationDirection === 'bottom-center' ||
+    elevationDirection === 'bottom-left' ||
+    elevationDirection === 'top-left';
 
 type ButtonStyleType = Pick<
     ButtonProps,

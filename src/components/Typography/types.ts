@@ -1,11 +1,6 @@
 import { TextProps } from 'react-native';
 
-export enum FontType {
-    HEADING = 'heading',
-    CAPS = 'caps',
-    BODY = 'body',
-    SERIF_HEADING = 'serif-heading',
-}
+export type FontType = 'heading' | 'caps' | 'body' | 'serif-heading';
 
 export enum FontWeight {
     EXTRA_BOLD = '800',
@@ -17,13 +12,6 @@ export enum FontWeight {
 }
 
 export type FontOverflow = 'ellipsis' | 'clip';
-
-export enum FontOpacity {
-    HEADING = 0.9,
-    SUB_HEADING = 0.7,
-    BODY_TEXT = 0.5,
-    BODY_TEXT_LIGHTER = 0.3,
-}
 
 export interface TypographyProps extends TextProps {
     /**

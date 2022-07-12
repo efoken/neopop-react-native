@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { mainColors, typographyGuide } from '../../primitives';
+import { fontOpacity, mainColors, typographyGuide } from '../../primitives';
 import Back from '../Back';
 import { Column } from '../Helpers';
 import Typography from '../Typography';
-import { FontOpacity } from '../Typography/types';
 import { HeaderProps } from './types';
 
 const Header: React.FC<HeaderProps> = ({
@@ -27,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({
                     <Typography
                         {...textStyle.heading}
                         color={fallbackColor}
-                        style={{ maxWidth: '75%', opacity: FontOpacity.HEADING }}
+                        style={{ maxWidth: '75%', opacity: fontOpacity.heading }}
                     >
                         {heading}
                     </Typography>
@@ -38,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
                     <Typography
                         {...textStyle.description}
                         color={fallbackColor}
-                        style={{ maxWidth: '75%', opacity: FontOpacity.BODY_TEXT }}
+                        style={{ maxWidth: '75%', opacity: fontOpacity.bodyText }}
                     >
                         {description}
                     </Typography>

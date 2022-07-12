@@ -25,21 +25,21 @@ export const getTransform = (
     ) as TransformsStyle['transform'];
 
 export const generateTextStyle = (
-    fontType = FontType.BODY,
+    fontType: FontType = 'body',
     fontSize = 14,
     fontWeight = FontWeight.REGULAR,
     color = '#FFFFFF',
 ): TextStyle => {
     const LINE_HEIGHT_MULTIPLIER = {
-        [FontType.HEADING]: 1.25,
-        [FontType.CAPS]: 1.25,
-        [FontType.BODY]: 1.5,
-        [FontType.SERIF_HEADING]: 1.25,
+        heading: 1.25,
+        caps: 1.25,
+        body: 1.5,
+        'serif-heading': 1.25,
     };
 
     const getLetterSpacing = (fType: FontType, fSize: number, fWeight: FontWeight) => {
         switch (fType) {
-            case FontType.HEADING:
+            case 'heading':
                 switch (fWeight) {
                     case FontWeight.EXTRA_BOLD:
                         return fSize >= 44 ? 0 : 0.2;
@@ -50,11 +50,11 @@ export const generateTextStyle = (
                     default:
                         return 0.2;
                 }
-            case FontType.CAPS:
+            case 'caps':
                 return fSize > 8 ? 2 : 1;
-            case FontType.BODY:
+            case 'body':
                 return 0.4;
-            case FontType.SERIF_HEADING:
+            case 'serif-heading':
                 return 0.2;
             default:
                 return 0.4;
@@ -70,7 +70,7 @@ export const generateTextStyle = (
         fontWeight,
         letterSpacing,
         lineHeight: Math.round(fontSize * LINE_HEIGHT_MULTIPLIER[fontType]),
-        ...(fontType === FontType.CAPS && {
+        ...(fontType === 'caps' && {
             textTransform: 'uppercase',
         }),
     };

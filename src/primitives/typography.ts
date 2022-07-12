@@ -1,4 +1,4 @@
-import { FontType, FontWeight } from '../components/Typography/types';
+import { FontWeight } from '../components/Typography/types';
 import { FontNameSpace } from '../types';
 
 export const fontNameSpaces: Record<string, FontNameSpace> = {
@@ -6,7 +6,7 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         (acc: Record<string, object>, fontSize: number) => ({
             ...acc,
             [`th${fontSize}eb`]: {
-                fontType: FontType.HEADING,
+                fontType: 'heading',
                 fontSize,
                 fontWeight: FontWeight.EXTRA_BOLD,
             },
@@ -17,7 +17,7 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         (acc: Record<string, object>, fontSize: number) => ({
             ...acc,
             [`th${fontSize}b`]: {
-                fontType: FontType.HEADING,
+                fontType: 'heading',
                 fontSize,
                 fontWeight: FontWeight.BOLD,
             },
@@ -28,7 +28,7 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         (acc: Record<string, object>, fontSize: number) => ({
             ...acc,
             [`th${fontSize}sb`]: {
-                fontType: FontType.HEADING,
+                fontType: 'heading',
                 fontSize,
                 fontWeight: FontWeight.SEMI_BOLD,
             },
@@ -39,7 +39,7 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         (acc: Record<string, object>, fontSize: number) => ({
             ...acc,
             [`tb${fontSize}m`]: {
-                fontType: FontType.BODY,
+                fontType: 'body',
                 fontSize,
                 fontWeight: FontWeight.MEDIUM,
             },
@@ -50,7 +50,7 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         (acc: Record<string, object>, fontSize: number) => ({
             ...acc,
             [`tb${fontSize}r`]: {
-                fontType: FontType.BODY,
+                fontType: 'body',
                 fontSize,
                 fontWeight: FontWeight.REGULAR,
             },
@@ -58,37 +58,37 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         {},
     ),
     tc12eb: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 12,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     tc10eb: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 10,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     tc12b: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 12,
         fontWeight: FontWeight.BOLD,
     },
     tc10b: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 10,
         fontWeight: FontWeight.BOLD,
     },
     tc8b: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 8,
         fontWeight: FontWeight.BOLD,
     },
     tc12sb: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 12,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     tc10sb: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 10,
         fontWeight: FontWeight.SEMI_BOLD,
     },
@@ -96,7 +96,7 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
         (acc: Record<string, object>, fontSize: number) => ({
             ...acc,
             [`tsh${fontSize}b`]: {
-                fontType: FontType.SERIF_HEADING,
+                fontType: 'serif-heading',
                 fontSize,
                 fontWeight: FontWeight.BOLD,
             },
@@ -107,267 +107,267 @@ export const fontNameSpaces: Record<string, FontNameSpace> = {
 
 export const fontVariant: Record<string, FontNameSpace> = {
     HeadingExtraBold44: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 44,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold34: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 34,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold28: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 28,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold22: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 22,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold20: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 20,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold18: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 18,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold16: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 16,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold15: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 15,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold14: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 14,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingExtraBold13: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 13,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     HeadingBold34: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 34,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold28: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 28,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold22: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 22,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold20: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 20,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold18: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 18,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold16: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 16,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold14: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 14,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold13: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 13,
         fontWeight: FontWeight.BOLD,
     },
     HeadingBold11: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 11,
         fontWeight: FontWeight.BOLD,
     },
     HeadingSemiBold22: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 22,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold20: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 20,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold18: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 18,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold16: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 16,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold14: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 14,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold13: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 13,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold12: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 12,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     HeadingSemiBold10: {
-        fontType: FontType.HEADING,
+        fontType: 'heading',
         fontSize: 10,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     BodyMedium16: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 16,
         fontWeight: FontWeight.MEDIUM,
     },
     BodyMedium15: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 15,
         fontWeight: FontWeight.MEDIUM,
     },
     BodyMedium14: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 14,
         fontWeight: FontWeight.MEDIUM,
     },
     BodyMedium13: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 13,
         fontWeight: FontWeight.MEDIUM,
     },
     BodyMedium12: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 12,
         fontWeight: FontWeight.MEDIUM,
     },
     BodyMedium11: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 11,
         fontWeight: FontWeight.MEDIUM,
     },
     BodyRegular16: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 16,
         fontWeight: FontWeight.REGULAR,
     },
     BodyRegular15: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 15,
         fontWeight: FontWeight.REGULAR,
     },
     BodyRegular14: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 14,
         fontWeight: FontWeight.REGULAR,
     },
     BodyRegular13: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 13,
         fontWeight: FontWeight.REGULAR,
     },
     BodyRegular12: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 12,
         fontWeight: FontWeight.REGULAR,
     },
     BodyRegular11: {
-        fontType: FontType.BODY,
+        fontType: 'body',
         fontSize: 11,
         fontWeight: FontWeight.REGULAR,
     },
     CapsExtraBold12: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 12,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     CapsExtraBold10: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 10,
         fontWeight: FontWeight.EXTRA_BOLD,
     },
     CapsBold12: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 12,
         fontWeight: FontWeight.BOLD,
     },
     CapsBold10: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 10,
         fontWeight: FontWeight.BOLD,
     },
     CapsBold8: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 8,
         fontWeight: FontWeight.BOLD,
     },
     CapsSemiBold12: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 12,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     CapsSemiBold10: {
-        fontType: FontType.CAPS,
+        fontType: 'caps',
         fontSize: 10,
         fontWeight: FontWeight.SEMI_BOLD,
     },
     CirkaHeadingBold36: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 36,
         fontWeight: FontWeight.BOLD,
     },
     CirkaHeadingBold34: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 34,
         fontWeight: FontWeight.BOLD,
     },
     CirkaHeadingBold32: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 32,
         fontWeight: FontWeight.BOLD,
     },
     CirkaHeadingBold24: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 24,
         fontWeight: FontWeight.BOLD,
     },
     CirkaHeadingBold22: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 22,
         fontWeight: FontWeight.BOLD,
     },
     CirkaHeadingBold20: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 20,
         fontWeight: FontWeight.BOLD,
     },
     CirkaHeadingBold18: {
-        fontType: FontType.SERIF_HEADING,
+        fontType: 'serif-heading',
         fontSize: 18,
         fontWeight: FontWeight.BOLD,
     },

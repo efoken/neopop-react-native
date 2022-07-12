@@ -1,6 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { colorPalette, mainColors } from '../../primitives';
-import { FontType, FontWeight } from '../../types';
+import { FontWeight } from '../../types';
 import { hexToRGBA } from '../../utils';
 import { Button, Typography } from '..';
 
@@ -141,12 +141,12 @@ export default MyCustomButton;
 ## Passing `textStyle` to the component
 
 -   Component that involves typography will have a prop called `textStyle` which accepts the `FontNameSpace` type object.
--   You can pass `FontWeight`, `FontSize`, and `FontType` to this object.
+-   You can pass `fontWeight`, `fontSize`, and `fontType` to this object.
 
 Let's customize the textStyle for the custom button:
 
 ```jsx
-import { FontWeights, FontType } from 'neopop-react-native/types';
+import { FontWeight } from 'neopop-react-native/types';
 
 const MyCustomButton = () => (
     <Button
@@ -156,7 +156,7 @@ const MyCustomButton = () => (
         kind="elevated"
         colorConfig={colorConfig}
         textStyle={{
-            fontType: FontType.HEADING,
+            fontType: 'heading',
             fontSize: 24,
             fontWeight: FontWeight.EXTRA_BOLD,
         }}
@@ -171,7 +171,7 @@ const MyCustomButton = () => (
         name="Custom TextStyle Button"
         args={{
             textStyle: {
-                fontType: FontType.HEADING,
+                fontType: 'heading',
                 fontSize: 24,
                 fontWeight: FontWeight.EXTRA_BOLD,
             },

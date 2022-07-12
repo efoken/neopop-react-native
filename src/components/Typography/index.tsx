@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text } from 'react-native';
 import useStyles from './styles';
-import { FontType, TypographyProps } from './types';
+import { TypographyProps } from './types';
 
 const Typography: React.FC<TypographyProps> = ({
     as,
@@ -26,8 +26,7 @@ const Typography: React.FC<TypographyProps> = ({
                     style={[
                         styles.paragraphWrapper,
                         {
-                            fontFamily:
-                                fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
+                            fontFamily: fontType === 'serif-heading' ? 'serif' : 'sans-serif',
                         },
                         style,
                     ]}
@@ -44,8 +43,7 @@ const Typography: React.FC<TypographyProps> = ({
                     style={[
                         styles.spanWrapper,
                         {
-                            fontFamily:
-                                fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
+                            fontFamily: fontType === 'serif-heading' ? 'serif' : 'sans-serif',
                         },
                         style,
                     ]}
@@ -62,8 +60,7 @@ const Typography: React.FC<TypographyProps> = ({
                     style={[
                         styles.typographyWrapper,
                         {
-                            fontFamily:
-                                fontType === FontType.SERIF_HEADING ? 'serif' : 'sans-serif',
+                            fontFamily: fontType === 'serif-heading' ? 'serif' : 'sans-serif',
                         },
                         style,
                     ]}
