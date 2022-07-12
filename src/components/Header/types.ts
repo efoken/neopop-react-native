@@ -14,7 +14,7 @@ export interface HeaderProps {
     /**
      * onPress handler on back button
      */
-    onBackPress: (event: GestureResponderEvent) => void;
+    onBackPress?: (event: GestureResponderEvent) => void;
     textStyle?: {
         description: FontNameSpace;
         heading: FontNameSpace;
