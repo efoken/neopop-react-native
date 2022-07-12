@@ -1,12 +1,13 @@
 import { ArgsTable, Canvas, ColorItem, ColorPalette, Meta, Story } from '@storybook/addon-docs';
+import { View } from 'react-native';
 import { InputField } from '..';
 
 <Meta title="Components/InputField" component={InputField} />
 
 export const InputFieldTemplate = (args) => (
-    <div style={{ backgroundColor: '#FFFFFF', padding: 30 }}>
+    <View style={{ backgroundColor: '#FFFFFF', padding: 30 }}>
         <InputField {...args} />
-    </div>
+    </View>
 );
 
 # Input Field
@@ -53,15 +54,15 @@ import * as React from 'react';
 import { InputField } from 'neopop-react-native/components';
 
 const InputFieldExample = () => (
-    <div>
+    <View>
         <InputField
+            autoFocus
             type="text"
             label="your name"
             placeholder="enter your name"
             nativeID="text_field"
-            autoFocus
         />
-    </div>
+    </View>
 );
 
 export default InputFieldExample;

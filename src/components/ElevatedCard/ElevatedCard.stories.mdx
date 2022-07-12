@@ -128,7 +128,7 @@ const Card = () => (
         <View style={{ padding: 20 }}>
             <Column>
                 <Row v="justify">
-                    <div>
+                    <View>
                         <Typography {...fontNameSpaces.tc12b} color={mainColors.white}>
                             ABCD Bank
                         </Typography>
@@ -140,30 +140,30 @@ const Card = () => (
                         >
                             XXX 1111
                         </Typography>
-                    </div>
+                    </View>
                     <Row
                         style={{
-                            width: 30,
-                            height: 30,
-                            borderRadius: '50%',
+                            width: 32,
+                            height: 32,
+                            borderRadius: 16,
                             borderWidth: 1,
                             borderColor: mainColors.white,
                         }}
                         h="center"
                         v="center"
                     >
-                        <div
+                        <View
                             style={{
                                 width: 20,
                                 height: 20,
-                                borderRadius: '50%',
+                                borderRadius: 10,
                                 backgroundColor: colorPalette.popWhite[300],
                             }}
                         />
                     </Row>
                 </Row>
                 <HorizontalSpacer n={8} />
-                <div style={{ maxWidth: '50%' }}>
+                <View style={{ maxWidth: '50%' }}>
                     <Tag
                         colorConfig={{
                             background: mainColors.yellow,
@@ -172,7 +172,7 @@ const Card = () => (
                     >
                         Due Today
                     </Tag>
-                </div>
+                </View>
                 <HorizontalSpacer n={2} />
                 <Typography {...fontNameSpaces.th16b} color={mainColors.white}>
                     ₹1000.00

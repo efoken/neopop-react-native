@@ -1,13 +1,14 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { View } from 'react-native';
 import { mainColors } from '../../primitives';
 import { Button } from '..';
 
 <Meta title="Components/Button" component={Button} />
 
 export const SampleButton = (args) => (
-    <div style={{ width: '100%' }}>
+    <View style={{ width: '100%' }}>
         <Button {...args}>Try me</Button>
-    </div>
+    </View>
 );
 
 # Button
