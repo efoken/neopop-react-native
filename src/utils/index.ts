@@ -1,4 +1,4 @@
-import { TextStyle } from 'react-native';
+import { Platform, TextStyle, TransformsStyle } from 'react-native';
 import { FontType, FontWeight } from '../components/Typography/types';
 
 export const hexToRGBA = (hex: string, alpha: string | number) => {
@@ -16,6 +16,13 @@ export const isEmpty = (value: any) =>
     (value?.constructor?.name === 'Object' && Object.keys(value).length === 0) ||
     ((value?.constructor?.name === 'Map' || value?.constructor?.name === 'Set') &&
         value.size === 0);
+
+export const getTransform = (
+    transforms: (NonNullable<TransformsStyle['transform']>[0] | { translateZ: number })[],
+) =>
+    transforms.filter(
+        (transform) => !('translateZ' in transform) || Platform.OS === 'web',
+    ) as TransformsStyle['transform'];
 
 export const generateTextStyle = (
     fontType = FontType.BODY,
@@ -78,6 +85,7 @@ export const mergeDeep = (target: any, ...sources: any[]): any => {
     const source = sources.shift();
 
     if (isObject(target) && isObject(source)) {
+        // eslint-disable-next-line no-restricted-syntax
         for (const key in source) {
             if (isObject(source[key])) {
                 if (!target[key]) {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Image, Pressable, View } from 'react-native';
+import { useLayout } from '../../../hooks/useLayout';
 import { fontNameSpaces } from '../../../primitives';
 import { getButtonColors, getSpacingConfig, getTextStyle } from '../../../primitives/buttons';
 import { Pointer } from '../../Helpers';
@@ -30,18 +31,25 @@ const ElevatedButton: React.FC<ButtonProps> = ({
     const customTextStyle = textStyle ?? getTextStyle(size) ?? fontNameSpaces.th14b;
     const textColor = disabled ? colors?.disabledColors?.color : colors?.color;
 
+    const { handleLayout, ...layout } = useLayout();
+
     const styles = useStyles({
         color: textColor,
         colorConfig: colors,
         disabled,
         elevationDirection,
         fullWidth,
+        layout,
         spacingConfig: spacing,
-        textStyle: customTextStyle,
     });
 
     return (
-        <Pressable disabled={disabled} style={[styles.buttonWrapper, style]} {...props}>
+        <Pressable
+            disabled={disabled}
+            style={[styles.buttonWrapper, style]}
+            onLayout={handleLayout}
+            {...props}
+        >
             {({ pressed }) => (
                 <>
                     <View

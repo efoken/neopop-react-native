@@ -25,7 +25,9 @@ export default function App() {
             <Typography {...fontVariant.BodyRegular16}>
                 Open up App.tsx to start working on your app!
             </Typography>
-            <Button>Test</Button>
+            <Button colorMode="light" kind="elevated" size="big">
+                Test
+            </Button>
             <Tag colorConfig={colorGuide.darkComponents.tags.error}>Error (dark)</Tag>
             <StatusBar
                 // eslint-disable-next-line react/style-prop-object
