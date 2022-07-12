@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { Platform, SafeAreaView, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { mainColors } from '../../primitives';
 import { hexToRGBA } from '../../utils';
@@ -9,6 +9,7 @@ import {
     CrossProps,
     HorizontalDividerProps,
     HorizontalSpacerProps,
+    PageContainerProps,
     PointerProps,
     RowProps,
     VerticalSpacerProps,
@@ -54,6 +55,29 @@ export const Column = React.forwardRef<View, ColumnProps>(({ h, style, v, ...pro
         {...props}
     />
 ));
+
+export const PageContainer = React.forwardRef<View, PageContainerProps>(
+    ({ style, ...props }, ref) => (
+        <SafeAreaView
+            ref={ref}
+            style={[
+                {
+                    backgroundColor: mainColors.black,
+                    paddingLeft: 30,
+                    paddingRight: 15,
+                    paddingTop: 0,
+                    ...(Platform.OS === 'web' && {
+                        // minHeight: 'calc(100vh - env(safe-area-inset-top))',
+                        // paddingBottom: 'env(safe-area-inset-bottom)',
+                        width: '100vw',
+                    }),
+                },
+                style,
+            ]}
+            {...props}
+        />
+    ),
+);
 
 export const HorizontalDivider: React.FC<HorizontalDividerProps> = ({ color }) => (
     <View
